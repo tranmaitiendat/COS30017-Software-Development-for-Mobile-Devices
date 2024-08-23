@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/paidIcon"
+        android:layout_width="350dp"
+        android:layout_height="669dp"
+        android:layout_gravity="center"
+        android:contentDescription="Paid Icon"
+        app:srcCompat="@drawable/paid_24dp_5f6368" />
+</LinearLayout>
