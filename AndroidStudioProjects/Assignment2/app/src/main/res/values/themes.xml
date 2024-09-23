@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Application Theme -->
+    <style name="Theme.Assignment2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here -->
+    </style>
+
+    <!-- Style for instrument name -->
+    <style name="InstrumentNameStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#1E88E5</item>
+        <item name="android:textStyle">bold</item>
+
+
+
+    </style>
+
+    <!-- Style for rental price -->
+    <style name="PriceTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#D32F2F</item>
+    </style>
+</resources>

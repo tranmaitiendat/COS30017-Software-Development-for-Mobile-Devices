@@ -1,0 +1,6 @@
+<!-- strings.xml -->
+<resources>
+    <string name="app_name">Assignment2</string>
+    <string name="instrument_image">Musical instrument images</string>
+
+</resources>

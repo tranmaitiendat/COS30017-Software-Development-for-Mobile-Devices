@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Detailed image -->
+        <ImageView
+            android:id="@+id/detailImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Detail Image"
+            android:src="@drawable/acoustic_guitar" />
+
+        <!-- Instrument name -->
+        <TextView
+            android:id="@+id/nameTextView"
+            style="@style/InstrumentNameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailImageView"
+            android:layout_marginTop="16dp"
+            android:text="Instrument Name" />
+
+        <!-- Rental price -->
+        <TextView
+            android:id="@+id/priceTextView"
+            style="@style/PriceTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTextView"
+            android:layout_marginTop="16dp"
+            android:text="Price: 0 credits" />
+
+        <!-- RatingBar -->
+        <RatingBar
+            android:id="@+id/ratingBarDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/priceTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:numStars="5"
+            android:stepSize="0.5" />
+
+        <!-- Attribute (ChipGroup) -->
+        <TextView
+            android:id="@+id/attributesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBarDetail"
+            android:layout_marginTop="16dp"
+            android:text="Attributes" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/attributeChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/attributesLabel"
+            android:layout_marginTop="8dp"
+            app:singleLine="false" />
+
+        <!-- Switch agrees to terms -->
+        <Switch
+            android:id="@+id/agreeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/attributeChipGroup"
+            android:layout_marginTop="16dp"
+            android:text="Agree to terms and conditions" />
+
+        <!-- "Save" and "Cancel" buttons -->
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/agreeSwitch"
+            android:layout_marginTop="24dp"
+            android:layout_alignParentStart="true"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/agreeSwitch"
+            android:layout_marginTop="24dp"
+            android:layout_alignParentEnd="true"
+            android:text="Cancel" />
+
+    </RelativeLayout>
+</ScrollView>
