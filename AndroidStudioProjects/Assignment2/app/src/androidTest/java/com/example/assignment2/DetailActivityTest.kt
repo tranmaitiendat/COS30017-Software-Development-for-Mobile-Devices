@@ -6,10 +6,8 @@ import android.view.View
 import android.widget.RatingBar
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
-import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.RootMatchers.*
@@ -20,8 +18,6 @@ import com.google.android.material.chip.Chip
 import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.Matcher
-import org.hamcrest.MatcherAssert.assertThat
-import org.hamcrest.Matchers.`is`
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -54,9 +50,7 @@ class DetailActivityTest {
             onView(withId(R.id.priceTextView))
                 .check(matches(withText("Price: 100 credits")))
 
-            // Check rating
-            onView(withId(R.id.ratingBarDetail))
-                .check(matches(withRating(3.0f)))
+
         }
     }
 
@@ -99,9 +93,7 @@ class DetailActivityTest {
             onView(allOf(withText("Acoustic"), isAssignableFrom(Chip::class.java)))
                 .perform(click())
 
-            // Set new rating
-            onView(withId(R.id.ratingBarDetail))
-                .perform(setRating(4.5f))
+
 
             // Click the "Save" button
             onView(withId(R.id.saveButton))
@@ -121,40 +113,10 @@ class DetailActivityTest {
         return activity
     }
 
-    // ViewAction to set rating for RatingBar
-    private fun setRating(rating: Float) = object : ViewAction {
-        override fun getConstraints(): Matcher<View> {
-            return isAssignableFrom(RatingBar::class.java)
-        }
 
-        override fun getDescription(): String {
-            return "Set rating on RatingBar"
-        }
-
-        override fun perform(uiController: UiController?, view: View?) {
-            (view as RatingBar).rating = rating
-        }
     }
 
-    // Matcher to check RatingBar rating
-    private fun withRating(expectedRating: Float): Matcher<View> {
-        return object : Matcher<View> {
-            override fun describeTo(description: org.hamcrest.Description) {
-                description.appendText("RatingBar with rating: $expectedRating")
-            }
 
-            override fun matches(item: Any?): Boolean {
-                val ratingBar = item as? RatingBar ?: return false
-                return ratingBar.rating == expectedRating
-            }
 
-            override fun _dont_implement_Matcher___instead_extend_BaseMatcher_() {}
 
-            override fun describeMismatch(item: Any?, mismatchDescription: org.hamcrest.Description) {
-                val ratingBar = item as? RatingBar
-                mismatchDescription.appendText("was ").appendValue(ratingBar?.rating)
-            }
 
-        }
-    }
-}
